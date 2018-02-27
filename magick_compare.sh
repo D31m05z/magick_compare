@@ -1,5 +1,12 @@
 #!/bin/bash
 
+catch_INT() {
+    printf "\n$(basename $0): exiting\n" 1>&2
+    exit 1
+}
+
+trap catch_INT INT
+
 usage="$(basename "$0") [-a] [-b] [-s n] -- You must be provided two folder path for comparing the images and the start frame index.
 
 where:
